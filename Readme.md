@@ -3,7 +3,7 @@ CS375-1 LM4: Introduction to Interactive Flutter Applications
 
 ## Objectives:
 1. Make an interactive flutter calculator
-2. Make your LM4 calculator interactive.  
+2. Make your calculator from LM3 interactive.  
 
 ## In Class Demos
 We will demo your calculator in class at a future date.
