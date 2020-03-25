@@ -26,6 +26,7 @@ const fstyle = FontStyle.normal;
 
 const fontsize = 60.0;
 
+
 const equalkeyconstraints = BoxConstraints(
     maxHeight: 200.0, maxWidth: 100.0, minHeight: 200.0, minWidth: 100.0);
 
@@ -100,6 +101,7 @@ class MyApp extends StatelessWidget {
                 ),
                 // Row 1
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   // First row of keys AC, +/-, %, and division
                   children: <Widget>[
                     key(specialkeycolor, keyconstraints, fstyle, fontsize,
@@ -113,6 +115,7 @@ class MyApp extends StatelessWidget {
                 ),
                 // Row 2
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   // Second row of keys
                   children: <Widget>[
                     key(keycolor, keyconstraints, fstyle, fontsize, "7"),
@@ -125,6 +128,7 @@ class MyApp extends StatelessWidget {
                 // Row 3
                 // Third row of keys
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     key(keycolor, keyconstraints, fstyle, fontsize, "4"),
                     key(keycolor, keyconstraints, fstyle, fontsize, "5"),
@@ -136,6 +140,7 @@ class MyApp extends StatelessWidget {
                 // Row 4
                 // Fourth row of keys
                 Row(
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     key(keycolor, keyconstraints, fstyle, fontsize, "1"),
                     key(keycolor, keyconstraints, fstyle, fontsize, "2"),
@@ -147,13 +152,12 @@ class MyApp extends StatelessWidget {
                 // Row 5
                 Row(
                   // Fifth row of keys
-                  mainAxisSize: MainAxisSize.max,
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     key(keycolor, zerokeyconstraints, fstyle, fontsize, "0"),
                     key(keycolor, keyconstraints, fstyle, fontsize, "."),
-                    Flexible(
-                        child: key(operationkeycolor, keyconstraints, fstyle,
-                            fontsize, "=")),
+                    key(operationkeycolor, keyconstraints, fstyle, fontsize, "="),
+
                   ],
                 ),
               ],
@@ -161,4 +165,5 @@ class MyApp extends StatelessWidget {
           ),
         ));
   }
+
 }
