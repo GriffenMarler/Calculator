@@ -17,27 +17,23 @@ class CalcKey extends StatefulWidget {
   final Alu alu;
 
   CalcKey(
-      {
-        Key key,
-        this.keyString = "",
-        this.fontSize = fontsize,
-        this.color = keyColor,
-        this.constraints = keyconstraints,
-        this.style = fstyle,
-        this.fontcolor = fontColor,
-        this.alu
-      } )
+      {Key key,
+      this.keyString = "",
+      this.fontSize = fontsize,
+      this.color = keyColor,
+      this.constraints = keyconstraints,
+      this.style = fstyle,
+      this.fontcolor = fontColor,
+      this.alu})
       : super(key: key);
-
 
   _CalcKeyState createState() => _CalcKeyState();
 }
 
 // Stores the state for the CalcKey class
 class _CalcKeyState extends State<CalcKey> {
-
   // The amount of time to allocate to each tap
-  final msec100 = Duration( milliseconds: 100 );
+  final msec100 = Duration(milliseconds: 100);
 
   //  The state of this key
   bool _isTapped = false;
@@ -45,47 +41,40 @@ class _CalcKeyState extends State<CalcKey> {
   // Animate the key color to give feedback for tap
   Future<void> toggleCalcKeyDisplay() async {
     // send the key press to the alu
-    widget.alu.pressed( widget.keyString );
-    setState( () { _isTapped = ! _isTapped; } );
+    widget.alu.pressed(widget.keyString);
+    setState(() {
+      _isTapped = !_isTapped;
+    });
     await Future.delayed(msec100);
-    setState( () { _isTapped = ! _isTapped; } );
+    setState(() {
+      _isTapped = !_isTapped;
+    });
   }
-
-
 
   Widget build(BuildContext context) {
     return GestureDetector(
 
-      // Handle a key tap...
-      onTap: () { 
-        toggleCalcKeyDisplay(); 
-      },
-
-      child: Center(
-        child: Container(
-          decoration: BoxDecoration(
-            // adjust the color based on _isTapped state
-            color: _isTapped ? keyColorTapped : widget.color, // the key background color
-            border: Border.all(
-              color: calcColor, // the border color
-              width: borderWidth,
+        // Handle a key tap...
+        onTap: () {
+          toggleCalcKeyDisplay();
+        },
+        child: Center(
+          child: Container(
+            decoration: BoxDecoration(
+              // adjust the color based on _isTapped state
+              color: _isTapped
+                  ? keyColorTapped
+                  : widget.color, // the key background color
+              border: Border.all(
+                color: calcColor, // the border color
+                width: borderWidth,
+              ),
+              borderRadius: BorderRadius.circular(12),
             ),
-            borderRadius: BorderRadius.circular(12),
+            constraints: widget.constraints,
+            alignment: Alignment.center,
+            child: keyText(widget.keyString, widget.fontSize),
           ),
-          constraints: widget.constraints,
-          alignment: Alignment.center,
-          child: keyText(widget.keyString, widget.fontSize),
-        
-
-
-          // child: new Text('',
-          //         textAlign: TextAlign.center, // Allign the text in the center
-          //         style: TextStyle(
-          //           fontStyle: fstyle,
-          //           color: fontColor,
-          //         )),
-        ),
-      )
-    );
+        ));
   }
 }

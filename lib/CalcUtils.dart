@@ -8,20 +8,16 @@ const keyconstraints = BoxConstraints(
 const zerokeyconstraints = BoxConstraints(
     maxHeight: 100.0, maxWidth: 200.0, minHeight: 100.0, minWidth: 200.0);
 
-// Double horizontal key
-const dblkeyHorizConstraints = BoxConstraints(
-    maxHeight: 100.0, maxWidth: 200.0, minHeight: 50.0, minWidth: 100.0, );
-
-// Double vertical key
-const dblkeyVertConstraints = BoxConstraints(
-    maxHeight: 200.0, maxWidth: 100.0, minHeight: 100.0, minWidth: 50.0, );
-
 // Display screen
 const displayconstraints = BoxConstraints(
     maxHeight: 100.0, maxWidth: 300.0, minWidth: 300.0, minHeight: 100.0);
 
 const screenConstraints = BoxConstraints(
-    maxHeight: 100.0, maxWidth: 400.0, minHeight: 50.0, minWidth: 200.0, );
+  maxHeight: 100.0,
+  maxWidth: 400.0,
+  minHeight: 50.0,
+  minWidth: 200.0,
+);
 
 // Color of each number and decimal key
 const keycolor = Color.fromARGB(255, 194, 32, 51);
@@ -47,7 +43,6 @@ const fstyle = FontStyle.normal;
 
 const fontsize = 60.0;
 
-
 // The Color of each key
 const keyColor = Color.fromARGB(255, 91, 92, 95);
 const keyColorTapped = Color.fromARGB(255, 141, 142, 145);
@@ -67,7 +62,7 @@ Text keyText(String key, double fontSize) =>
 
 // Lambda that gives me a text object for the display
 Text displayText(String key, double fontSize) =>
-    Text(key, style: TextStyle(fontSize: fontSize, color: fontColor));    
+    Text(key, style: TextStyle(fontSize: fontSize, color: fontColor));
 
 // width of key and screen border
 double borderWidth = 5;

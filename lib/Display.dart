@@ -4,13 +4,12 @@ import 'CalcUtils.dart';
 class CalcDisplay extends StatefulWidget {
   final String lcdDisplay;
 
-  CalcDisplay({Key key, @required this.lcdDisplay }) : super(key: key);
+  CalcDisplay({Key key, @required this.lcdDisplay}) : super(key: key);
 
   _CalcDisplay createState() => _CalcDisplay();
 }
 
 class _CalcDisplay extends State<CalcDisplay> {
-
   Widget build(BuildContext context) {
     return Container(
         decoration: BoxDecoration(
@@ -23,6 +22,6 @@ class _CalcDisplay extends State<CalcDisplay> {
         ),
         constraints: displayconstraints,
         alignment: Alignment.bottomRight,
-        child: displayText( widget.lcdDisplay, 50.0));
+        child: displayText(widget.lcdDisplay, 50.0));
   }
 }

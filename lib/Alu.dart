@@ -1,14 +1,6 @@
 const int precision = 9;
 
-enum Operation {
-  add,
-  sub,
-  mul,
-  div,
-  percent,
-  ac,
-  posneg
-}
+enum Operation { add, sub, mul, div, percent, ac, posneg }
 
 class Alu {
   String buf = ""; // Holds string for display widget
@@ -29,9 +21,9 @@ class Alu {
     decimal = false;
     op = oper;
 
-    // Only move Y to X if an answer is NOT 
+    // Only move Y to X if an answer is NOT
     // in the display
-    if( !displayHasAnswer ) accX = accY;
+    if (!displayHasAnswer) accX = accY;
     buf = "";
   }
 
@@ -44,7 +36,7 @@ class Alu {
   }
 
   String _removeTrailingZeros(String s) {
-    if(s[s.length - 1] != "0" || !s.contains(".")) {
+    if (s[s.length - 1] != "0" || !s.contains(".")) {
       return s;
     } else {
       return _removeTrailingZeros(s.substring(0, s.length - 1));
@@ -53,52 +45,56 @@ class Alu {
 
 // Execute the corrent operation after "=" is pressed
   void _doOperation() {
-    switch(op) {
+    switch (op) {
       case Operation.add:
-      accX = accX + accY;
-      buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
-      break;
+        accX = accX + accY;
+        buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
+        break;
       case Operation.sub:
-      accX = accX - accY;
-      buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
-      break;
+        accX = accX - accY;
+        buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
+        break;
       case Operation.mul:
-      accX = accX * accY;
-      buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
-      break;
+        accX = accX * accY;
+        buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
+        break;
       case Operation.div:
-      accX = accX / accY;
-      buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
-      break;
+        accX = accX / accY;
+        buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
+        break;
       case Operation.percent:
-      accX = (accX / 100.0) * accY;
-      buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
-      break;
+        accX = (accX / 100.0) * accY;
+        buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
+        break;
       case Operation.ac:
-      _doAC();
-      break;
+        _doAC();
+        break;
+      // Function that I added for the +/- functionality I included on my calculator
       case Operation.posneg:
-      break;
+        // Change the number to either positive or negative by multiplying it by -1
+        accX = accX * -1;
+        buf = _removeTrailingZeros(accX.toStringAsPrecision(precision));
+        break;
       default:
-      _doAC();
-      buf = "Err";
-      break;
+        _doAC();
+        buf = "Err";
+        break;
     }
   }
 
-void pressed(String d) {
-  if("0123456789".contains(d)) {
-    if(displayHasAnswer) {
-      _doAC();   // Clear display first
-      displayHasAnswer = false;
-    }
-    if(buf.length < 10) buf+= d;
-    accY = double.parse(buf);
-  } else if(d == "+") {
-    _initOperation(Operation.add);
-  } else if (d == "-") {
-    _initOperation(Operation.sub);
-  } else if (d == "%") {
+  void pressed(String d) {
+    if ("0123456789".contains(d)) {
+      if (displayHasAnswer) {
+        _doAC(); // Clear display first
+        displayHasAnswer = false;
+      }
+      if (buf.length < 10) buf += d;
+      accY = double.parse(buf);
+    } else if (d == "+") {
+      _initOperation(Operation.add);
+    } else if (d == "-") {
+      _initOperation(Operation.sub);
+    } else if (d == "%") {
       _initOperation(Operation.percent);
     } else if (d == "\u00F7") {
       _initOperation(Operation.div);
@@ -110,10 +106,9 @@ void pressed(String d) {
     } else if (d == "=") {
       _doOperation();
       displayHasAnswer = true;
-    } else if(d == "+/-") {
-      
-    }
-     else if (d == "." && decimal == false) {
+    } else if (d == "+/-") {
+      _initOperation(Operation.posneg);
+    } else if (d == "." && decimal == false) {
       // Start entering a decimal number
       if (displayHasAnswer) {
         _doAC(); // Clear display first
@@ -126,4 +121,3 @@ void pressed(String d) {
     this.update();
   }
 }
-
