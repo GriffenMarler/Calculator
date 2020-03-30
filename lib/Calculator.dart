@@ -4,6 +4,11 @@ import 'CalcKey.dart';
 import 'Display.dart';
 import 'Alu.dart';
 
+// This class creates the actual calculator widget 
+// which will be run on the application. Here 
+// specific keys are specified using the CalcKey.dart
+// functionalities and we declare the ALU to run inside
+// this calculator. 
 class Calculator extends StatefulWidget {
   Calculator({Key key}) : super(key: key);
 

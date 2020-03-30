@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+// This file provides global variables that can be easily changed
+// to format the calculator. This is heavily based off Kent's example
+// with my values imported and some new variables added. 
+
 // The constraints for each key
 const keyconstraints = BoxConstraints(
     maxHeight: 100.0, maxWidth: 100.0, minWidth: 100.0, minHeight: 100.0);

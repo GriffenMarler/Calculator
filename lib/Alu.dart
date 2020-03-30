@@ -2,6 +2,11 @@ const int precision = 9;
 
 enum Operation { add, sub, mul, div, percent, ac, posneg }
 
+// This is the ALU class (Arithmetic logic unit)
+// which is responsible for handling all the calculations
+// needed to be performed by the calculator. I modified Kent's
+// code to work with my calculator and added a function for 
+// my +/- button on my calculator. 
 class Alu {
   String buf = ""; // Holds string for display widget
   double accY = 0; // Holds current double value

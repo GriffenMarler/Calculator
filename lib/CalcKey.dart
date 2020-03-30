@@ -8,7 +8,8 @@ import 'CalcUtils.dart';
 import 'Alu.dart';
 
 // This is the calculator key class that helps create the design and formatting
-// for each specific calculator key
+// for each specific calculator key. The CalcKey class is utilized inside my Calculator.dart
+// file. This class is also able to handle the event of a key tap. 
 class CalcKey extends StatefulWidget {
   final String keyString;
   final double fontSize;
