@@ -106,6 +106,7 @@ class Alu {
     } else if (d == "=") {
       _doOperation();
       displayHasAnswer = true;
+      // Added functionality for my +/- button
     } else if (d == "+/-") {
       _initOperation(Operation.posneg);
     } else if (d == "." && decimal == false) {

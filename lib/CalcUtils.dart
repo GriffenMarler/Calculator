@@ -12,6 +12,7 @@ const zerokeyconstraints = BoxConstraints(
 const displayconstraints = BoxConstraints(
     maxHeight: 100.0, maxWidth: 300.0, minWidth: 300.0, minHeight: 100.0);
 
+// Constraints for entire screen
 const screenConstraints = BoxConstraints(
   maxHeight: 100.0,
   maxWidth: 400.0,
@@ -39,12 +40,15 @@ const specialkeycolor = Color.fromARGB(255, 200, 183, 132);
 // https://www.whitworth.edu/cms/media/whitworth/documents/administration/marketing-amp-communications/brand-amp-identity/whitworth-university-brand-guide.pdf
 const operationkeycolor = Color.fromARGB(255, 200, 183, 132);
 
+// Normal text
 const fstyle = FontStyle.normal;
 
 const fontsize = 60.0;
 
 // The Color of each key
 const keyColor = Color.fromARGB(255, 91, 92, 95);
+
+// Color when key is tapped
 const keyColorTapped = Color.fromARGB(255, 141, 142, 145);
 
 // The Color of each key's font
@@ -52,9 +56,6 @@ const fontColor = Colors.black;
 
 // The Color of each calculator
 var calcColor = Color.fromARGB(255, 57, 56, 59);
-
-// The Color of the calculator's screen
-var screenColor = Color.fromARGB(255, 162, 175, 119);
 
 // Lambda that gives me a text object for a key
 Text keyText(String key, double fontSize) =>

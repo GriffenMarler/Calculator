@@ -18,7 +18,7 @@ class _CalculatorState extends State<Calculator> {
   bool _first = true;
   var _alu;
 
-  // function for childe to call in order
+  // function for child to call in order
   // to update the state of this widget
   void callback() {
     setState(() {
@@ -50,8 +50,8 @@ class _CalculatorState extends State<Calculator> {
         // Used the above links to help me get an image in the AppBar
         title: Image.network(
           'https://golinfieldwildcats.com/images/logos/Whitworth.png',
-          height: 80,
-          width: 80,
+          height: 70,
+          width: 70,
         ),
         // Make the image in the center
         centerTitle: true,
@@ -70,7 +70,7 @@ class _CalculatorState extends State<Calculator> {
               mainAxisSize: MainAxisSize.min,
               // First row of keys AC, +/-, %, and division
               children: <Widget>[
-                // Use Kent's Calckey function with my calcutils to work with my calculator design. 
+                // Use Kent's Calckey function with my calcutils to work with my calculator design.
                 CalcKey(
                   alu: _alu,
                   keyString: 'AC',

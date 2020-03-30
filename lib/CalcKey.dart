@@ -7,6 +7,8 @@ import 'package:flutter/material.dart';
 import 'CalcUtils.dart';
 import 'Alu.dart';
 
+// This is the calculator key class that helps create the design and formatting
+// for each specific calculator key
 class CalcKey extends StatefulWidget {
   final String keyString;
   final double fontSize;
@@ -16,11 +18,12 @@ class CalcKey extends StatefulWidget {
   final Color fontcolor;
   final Alu alu;
 
+// Constructor
   CalcKey(
       {Key key,
       this.keyString = "",
       this.fontSize = fontsize,
-      this.color = keyColor,
+      this.color = keycolor,
       this.constraints = keyconstraints,
       this.style = fstyle,
       this.fontcolor = fontColor,
